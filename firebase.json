@@ -1,5 +1,5 @@
 {
-  "firebase": "ucdd2-book",
+  "firebase": "alexokeson-week1",
   "public": "build",
   "ignore": [
     "firebase.json",
