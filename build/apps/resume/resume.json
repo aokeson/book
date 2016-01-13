@@ -1,0 +1,87 @@
+{
+	"bio" : {
+		"contact" : [
+			"www.linkedin.com/in/alexandraokeson",
+			"amokeson@gmail.com",
+			"(907) 232-2233",
+			"8361 Longhorn St. Anchorage, AK 99507"
+		],
+		"CU" : [
+			"Expected Graduation: May 2017",
+			"GPA: 4.0/4.0",
+			"B.S. in Computer Science",
+			"Engineering Honors Program student",
+			"Dean's List"
+		],
+		"HMC" : [
+			"Sept 2014-May 2014",
+			"Dean's List"
+		],
+		"skills" : [
+			"Python",
+			"SQL",
+			"BASH",
+			"Microsoft Office",
+			"familiar with Java",
+			"familiar with HTML",
+			"familiar with Swift"
+		],
+		"courses" : [
+			"User Centered Design",
+			"Theory of Computation",
+			"Algorithms",
+			"Programming Languages",
+			"Computer Systems",
+			"Discrete Mathematics",
+			"Linear Algebra",
+			"Probability and Statistics"
+		],
+		"DLA" : [
+			"Artificial Pancreas Algorithms Researcher",
+			"Aug 2015-current",
+			"Boulder, CO",
+			"Evaluating reliability of artificial pancreas algorithms for Type I diabetes patients"
+		],
+		"FCC" : [
+			"Office of Engineering and Technology Intern",
+			"June 2015-July 2015",
+			"Washington, DC",
+			"Debugged and analyzed internet service provider performance data on SQL database",
+			"Edited and fact-checked Measuring Broadband America 2015 Report",
+			"Researched and counseled co-workers on reliability of IP geolocation"
+		],
+		"LASP" : [
+			"Undergraduate Research Assistant",
+			"Oct 2014-May 2015",
+			"Boulder, CO",
+			"Streamlined data collection software on Student Dust Counter on NASA New Horizons mission",
+			"Updated software using BASH and Python to prepare data for analysis"
+		],
+		"Next" : [
+			"R&D Intern",
+			"June 2014-July 2014",
+			"Santa Barbara, CA",
+			"Independently programmed and oversaw operations of CNC milling machine which increased solar cell geometric efficiency by over 5%",
+			"Programmed operations for Arduino system using G Code",
+			"Collaborated with senior scientists to solve solar cell circuitry problems"
+		],
+		"NHPS" : [
+			"Website Designer",
+			"June 2014-Aug 2014",
+			"Anchorage, AK",
+			"Worked with client to integrate new technology with current operations",
+			"Independently designed website which improved website usability and company visibility"
+		],
+		"awards" : [
+			"Tau Beta Pi Engineering Honors Society",
+			"American Collegiate Rowing Association Academic All American (2015)"
+		],
+		"activities" : [
+			"Grace Hopper Conference attendee (2013 and 2015)",
+			"member of CU varisty crew team",
+			"volunteer tutor in special education classroom",
+			"South Africa mission trip team member",
+			"Junior Olympic cross country skiier"
+		]
+	}
+}

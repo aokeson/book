@@ -17,16 +17,62 @@
 
       <div class="container">
 
-        <h1>Tom Yeh</h1>
+        <h1>Alexandra Okeson Resume</h1>
 
-        <h2>Favorite Programming Languages</h2>
-        <ul class="collection">
-          <li class="collection-item">Javascript</li>
-          <li class="collection-item">Haskell</li>
+        <h2>Contact Information</h2>
+        <ul class="collection" id="contact">
         </ul>
 
-        <h2>Favorite Food</h2>
-        <ul class="collection" id="foods">
+        <h2>Education</h2>
+        <ul class="collection" id="education">
+        </ul>
+
+        <h3>University of Colorado Boulder</h3>
+        <ul class="collection" id="CU">
+        </ul>
+
+        <h3>Harvey Mudd College</h3>
+        <ul class="collection" id="HMC">
+        </ul>
+
+        <h2>Technical Skills</h2>
+        <ul class="collection" id="skills">
+        </ul>
+
+        <h2>Relevant Coursework</h2>
+        <ul class="collection" id="courses">
+        </ul>
+
+        <h2>Work Experience</h2>
+        <ul class="collection" id="work">
+        </ul>
+
+        <h3>Discovery Learning Apprenticeship</h3>
+        <ul class="collection" id="DLA">
+        </ul>
+
+        <h3>Federal Communications Commission</h3>
+        <ul class="collection" id="FCC">
+        </ul>
+
+        <h3>Laboratory for Atmospheric and Space Physics</h3>
+        <ul class="collection" id="LASP">
+        </ul>
+
+        <h3>Next Energy Technologies</h3>
+        <ul class="collection" id="Next">
+        </ul>
+
+        <h3>New Horizons Preschool</h3>
+        <ul class="collection" id="NHPS">
+        </ul>
+
+        <h2>Awards</h2>
+        <ul class="collection" id="awards">
+        </ul>
+
+        <h2>Activities and Interests</h2>
+        <ul class="collection" id="activities">
         </ul>
 
       </div>
@@ -34,13 +80,101 @@
       <script>
 
         // create a firebase reference to the root
-        var ref = new Firebase('https://hello-ucdd2.firebaseio.com/')
+        var ref = new Firebase('https://alexokeson-resume.firebaseio.com/')
 
-        // read data from the location bio/favorite_foods, only once
-        ref.child('bio/favorite_foods').once('value', function(snapshot){
-          var foods = snapshot.val()
-          foods.forEach(function(food){
-            $('#foods').append('<li class="collection-item">' + food + '</li>')
+        // read data from the location bio/contact, only once
+        ref.child('bio/contact').once('value', function(snapshot){
+          var contact = snapshot.val()
+          contact.forEach(function(info){
+            $('#contact').append('<li class="collection-item">' + info + '</li>')
+          })
+        })
+
+        // read data from the location bio/CU, only once
+        ref.child('bio/CU').once('value', function(snapshot){
+          var CU = snapshot.val()
+          CU.forEach(function(CUinfo){
+            $('#CU').append('<li class="collection-item">' + CUinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/HMC, only once
+        ref.child('bio/HMC').once('value', function(snapshot){
+          var HMC = snapshot.val()
+          HMC.forEach(function(HMCinfo){
+            $('#HMC').append('<li class="collection-item">' + HMCinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/skills, only once
+        ref.child('bio/skills').once('value', function(snapshot){
+          var skills = snapshot.val()
+          skills.forEach(function(skill){
+            $('#skills').append('<li class="collection-item">' + skill + '</li>')
+          })
+        })
+
+        // read data from the location bio/courses, only once
+        ref.child('bio/courses').once('value', function(snapshot){
+          var courses = snapshot.val()
+          courses.forEach(function(course){
+            $('#courses').append('<li class="collection-item">' + course + '</li>')
+          })
+        })
+
+        // read data from the location bio/DLA, only once
+        ref.child('bio/DLA').once('value', function(snapshot){
+          var DLA = snapshot.val()
+          DLA.forEach(function(DLAinfo){
+            $('#DLA').append('<li class="collection-item">' + DLAinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/FCC, only once
+        ref.child('bio/FCC').once('value', function(snapshot){
+          var FCC = snapshot.val()
+          FCC.forEach(function(FCCinfo){
+            $('#FCC').append('<li class="collection-item">' + FCCinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/LASP, only once
+        ref.child('bio/LASP').once('value', function(snapshot){
+          var LASP = snapshot.val()
+          LASP.forEach(function(LASPinfo){
+            $('#LASP').append('<li class="collection-item">' + LASPinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/Next, only once
+        ref.child('bio/Next').once('value', function(snapshot){
+          var Next = snapshot.val()
+          Next.forEach(function(Nextinfo){
+            $('#Next').append('<li class="collection-item">' + Nextinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/NHPS, only once
+        ref.child('bio/NHPS').once('value', function(snapshot){
+          var NHPS = snapshot.val()
+          NHPS.forEach(function(NHPSinfo){
+            $('#NHPS').append('<li class="collection-item">' + NHPSinfo + '</li>')
+          })
+        })
+
+        // read data from the location bio/awards, only once
+        ref.child('bio/awards').once('value', function(snapshot){
+          var awards = snapshot.val()
+          awards.forEach(function(award){
+            $('#awards').append('<li class="collection-item">' + award + '</li>')
+          })
+        })
+
+        // read data from the location bio/activities, only once
+        ref.child('bio/activities').once('value', function(snapshot){
+          var activities = snapshot.val()
+          activities.forEach(function(activity){
+            $('#activities').append('<li class="collection-item">' + activity + '</li>')
           })
         })
       </script>
