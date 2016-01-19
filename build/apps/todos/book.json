@@ -1,0 +1,19 @@
+{
+  "todos" : {
+    "tasks" : [
+    	{"name": "eat", "priority": "high", "type": "personal", "deadline": "three times a day"},
+        {"name": "sleep", "priority": "medium", "type": "personal", "deadline": "everyday at 11pm"},
+        {"name": "brush teeth", "priority": "high", "type": "hygiene", "deadline": "twice a day"},
+        {"name": "attend class", "priority": "high", "type": "academic", "deadline": "4pm"},
+        {"name": "meet partners", "priority": "medium", "type": "academic", "deadline": "5pm"},
+        {"name": "homework", "priority": "high", "type": "academic", "deadline": "Friday"},
+        {"name": "relax", "priority": "high", "type": "personal", "deadline": "none"},
+        {"name": "work", "priority": "high", "type": "career", "deadline": "3pm"},
+        {"name": "call mom", "priority": "low", "type": "personal", "deadline": "7pm"},
+        {"name": "get stoked", "priority": "high", "type": "personal", "deadline": "All day everyday"}
+	]
+  }
+}
+
+
+
