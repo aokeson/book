@@ -18,6 +18,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+
       <nav>
         <div class="nav-wrapper teal lighten-2">
           <ul>
@@ -25,8 +26,6 @@
             <li><a href="high.html">High</a></li>
             <li><a href="medium.html">Medium</a></li>
             <li><a href="low.html">Low</a></li>
-            <li><a href="completed.html">Completed</a></li>
-            <li><a href="inbox.html">Inbox</a></li>
           </ul>
         </div>
       </nav>
@@ -48,27 +47,19 @@
 
 
         // create a firebase reference to the root
-        var ref = new Firebase('https://killinit-base.firebaseio.com')
-
-        var markAsCompleted = function(key){
-          ref.child('todos/tasks').child(key).update({
-            priority: "completed"
-          })
-        }
+        var ref = new Firebase('https://paige-book.firebaseio.com/')
 
         // read data from the location todos/tasks, only once
         ref.child('todos/tasks').on('value', function(snapshot){
           var tasks = snapshot.val()
           $("#tasks").empty();
-          for (var taskNumber in tasks){
-            var task = tasks[taskNumber]
+          tasks.forEach(function(task){
             color = ''
-            button = '<a class="grey darken-1 btn" onclick=markAsCompleted("'+taskNumber+'")>Completed</a>'
-            if(task.priority=='high'){
-              color = 'red'
-              $('#tasks').append('<div class="row"><div class="col s12 m20"><div class="card ' + color + '"><div class="card-content white-text"><span class="card-title">' + task.name + '</span><p><i class= "tiny material-icons">assignment_ind</i> Assigned To: ' + task.assigned + '<br><i class="tiny material-icons">assessment</i> Priority: ' + task.priority + '<br><i class="tiny material-icons">label_outline</i> Type: ' + task.type + '<br><i class="tiny material-icons">today</i> Due Date: ' + task.deadline + '<br>' + button + '</p></div></div></div></div>')
+            if(task.priority=='low'){
+              color = 'green'
+              $('#tasks').append('<div class="row"><div class="col s12 m20"><div class="card ' + color + '"><div class="card-content white-text"><span class="card-title">' + task.name + '</span><p><i class="tiny material-icons">assessment</i> Priority: ' + task.priority + '<br><i class="tiny material-icons">label_outline</i> Type: ' + task.type + '<br><i class="tiny material-icons">schedule</i> Deadline: ' + task.deadline + '</p></div></div></div></div>')
             }
-           }
+           })
           })
 
       </script>
