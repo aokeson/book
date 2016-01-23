@@ -15,6 +15,15 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <ul>
+            <li><a href="index.html">Resume/ToDos</a></li>
+            <li><a href="subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </nav> 
+
       <div class="container">
 
         <h1> Subscribe </h1>
@@ -41,16 +50,33 @@
 
       <script>
 
+        var root = new Firebase('https://alexokeson-resume.firebaseio.com/')
+        var taskListRef = root.child('subscribe')
+
         $('#submit').click(function(){
           console.log('the submit button is clicked')
 
-          // TODO: add code to submit an email address to your own Firebase
+          var email = $('#email').val()
+          console.log('the email is', email)
 
+          var taskObject = {
+              Email: email
+            };
+
+            //null or empty string
+            if (email!= null) {
+              taskListRef.push().set(taskObject);
+            }
         })
-
-
-        // TODO: add code to pull emaill addresses from your own Firebase,
-        // and populate "#emails" with these email addresses
+                   
+        taskListRef.on('value', function(snapshot){
+          var emails = snapshot.val()
+          $("#emails").empty();
+          for (var emailNumber in emails){
+            var email = emails[emailNumber]
+            $('#emails').append('<li class="collection-item">' + email.Email + '</li>')
+          }
+        })
 
 
       </script>

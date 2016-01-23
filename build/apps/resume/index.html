@@ -15,6 +15,15 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <ul>
+            <li><a href="index.html">Resume/ToDos</a></li>
+            <li><a href="subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </nav>      
+
       <div class="container">
 
         <h1>Alexandra Okeson Resume</h1>
@@ -177,6 +186,52 @@
             $('#activities').append('<li class="collection-item">' + activity + '</li>')
           })
         })
+      </script>
+
+      <div class="container">
+
+        <h1>Tasks</h1>
+        <ul class="collection" id="tasks">
+        </ul>
+
+      </div>
+
+
+      <script>
+
+        // create a firebase reference to the root
+        var ref = new Firebase('https://killinit-base.firebaseio.com')
+
+        var markAsCompleted = function(key){
+          ref.child('todos/tasks').child(key).update({
+            priority: "completed"
+          })
+        }
+
+        // read data from the location todos/tasks
+        ref.child('todos/tasks').on('value', function(snapshot){
+          var tasks = snapshot.val()
+          $("#tasks").empty();
+          for (var taskNumber in tasks){
+            var task = tasks[taskNumber]
+            color = ''
+            button = '<a class="grey darken-1 btn" onclick=markAsCompleted("'+taskNumber+'")>Completed</a>'
+            if(task.priority=='high'){
+              color = 'red'
+            } else if(task.priority=='medium'){
+              color = 'yellow'
+            } else if(task.priority=='completed'){
+              color = 'blue'
+              button = '<a class="btn disabled">Completed</a>'
+            } else {
+              color = 'green'
+            }
+            if(task.assigned=='Alex'){
+              $('#tasks').append('<div class="row"><div class="col s12 m20"><div class="card ' + color + '"><div class="card-content white-text"><span class="card-title">' + task.name + '</span><p><i class= "tiny material-icons">assignment_ind</i> Assigned To: ' + task.assigned + '<br><i class="tiny material-icons">assessment</i> Priority: ' + task.priority + '<br><i class="tiny material-icons">label_outline</i> Type: ' + task.type + '<br><i class="tiny material-icons">today</i> Due Date: ' + task.deadline + '<br>' + button + '</p></div></div></div></div>')
+            }
+           }
+          })
+
       </script>
     </body>
   </html>
