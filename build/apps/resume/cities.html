@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
       <!--Import stylesheet for Leaflet to work-->
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
       <link rel="stylesheet" href="/css/leaflet.label.css" />
 
       <!--Let browser know website is optimized for mobile-->
@@ -19,14 +19,33 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
-      <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
       <script src="/js/leaflet.label.js"></script>
+
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <ul>
+            <li><a href="/">Course Home</a></li>
+            <li><a href="index.html">Resume/ToDos</a></li>
+            <li><a href="subscribe.html">Subscribe</a></li>
+            <li class="active"><a href="cities.html">Cities</a></li>
+          </ul>
+        </div>
+      </nav>
 
       <div class="container">
 
-        <h1>My Favoirte Cities</h1>
-        <div id="cities"></div>
+        <h1>My Favorite Cities</h1>
+        <h5>Key for Map Colors</h5>
+        <p>
+          Blue: Temperature is below 32&deg F
+          <br>Purple: Temperature is between 32 and 49&deg F
+          <br>Yellow: Temperature is between 50 and 69&deg F
+          <br>Orange: Temperature is between 70 and 89&deg F
+          <br>Red: Temperature is above 90&deg F
+        </p>
         <div id="map" style="height:500px"></div>
+        <div id="cities"></div>
       </div>
 
       <script>
@@ -36,35 +55,36 @@ var weatherRef = new Firebase('https://publicdata-weather.firebaseio.com');
 
 var data
 
-// read data from only once
-weatherRef.child('denver').once('value', function(snapshot){
+// read data from weather firebase
+weatherRef.child('denver').on('value', function(snapshot){
+  $('#cities').empty()
   var city = snapshot.val()
   mapCity(city, 'Denver')
-  displayCity(city, 'denver')
+  displayCity(city, 'Denver')
 })
 
-weatherRef.child('seattle').once('value', function(snapshot){
+weatherRef.child('seattle').on('value', function(snapshot){
   var city = snapshot.val()
   mapCity(city, 'Seattle')
-  displayCity(city, 'seattle')
+  displayCity(city, 'Seattle')
 })
 
-weatherRef.child('losangeles').once('value', function(snapshot){
-  var city = snapshot.val()
+weatherRef.child('losangeles').on('value', function(snapshot){
+  var city = snapshot.val() 
   mapCity(city, 'Los Angeles')
-  displayCity(city, 'losangeles')
+  displayCity(city, 'Los Angeles')
 })
 
-weatherRef.child('washington').once('value', function(snapshot){
+weatherRef.child('washington').on('value', function(snapshot){
   var city = snapshot.val()
   mapCity(city, 'Washington DC')
-  displayCity(city, 'washington')
+  displayCity(city, 'Washington DC')
 })
 
-weatherRef.child('sanfrancisco').once('value', function(snapshot){
+weatherRef.child('sanfrancisco').on('value', function(snapshot){
   var city = snapshot.val()
   mapCity(city, 'San Francisco')
-  displayCity(city, 'sanfrancisco')
+  displayCity(city, 'San Francisco')
 })
 
 var attributionText = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a       href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
@@ -83,24 +103,78 @@ var markersLayerGroup = L.layerGroup()
 // add the makers layer group to the map
 markersLayerGroup.addTo(map)
 
+
+markersLayerGroup.clearLayers()
 // visualize cities on the map
 function mapCity(city,name){
   console.log('mapCity', city)
+  var tempColor = 'red'
+  if (city.hourly.data[0].apparentTemperature<32){
+    tempColor = 'blue'
+  } else if (city.hourly.data[0].apparentTemperature<50){
+    tempColor = 'purple'
+  } else if (city.hourly.data[0].apparentTemperature<70){
+    tempColor = 'yellow'
+  } else if (city.hourly.data[0].apparentTemperature<90){
+    tempColor = 'orange'
+  }
+  var weatherPic = 'http://images.clipartpanda.com/weather-clip-art-inclement_weather_Vector_Clipart.png'
+  var weatherHeight = '80'
+  if (city.hourly.icon=='clear-day'){
+    weatherPic = 'http://images.clipartpanda.com/weather-clipart-eace88BT4.jpeg'
+    var weatherHeight = '75'
+  } else if (city.hourly.icon=='clear-night'){
+    weatherPic = 'http://www.pageresource.com/clipart/clipart/nature/weather/moon/clear-night.png'
+    var weatherHeight = '67'
+  } else if (city.hourly.icon=='rain'){
+    weatherPic = 'http://images.clipartpanda.com/clouds-clipart-rainy_weather_clip_art_16550.jpg'
+    var weatherHeight = '100'
+  } else if (city.hourly.icon=='snow'){
+    weatherPic = 'http://images.all-free-download.com/images/graphiclarge/weather_symbols_clip_art_17462.jpg'
+    var weatherHeight = '100'
+  } else if (city.hourly.icon=='sleet'){
+    weatherPic = 'http://www.fotor.com/fotor.test/8be5e8df6a3c4556a42f836e828d52da/8be5e8df6a3c4556a42f836e828d52da_p_400.png'
+    var weatherHeight = '85'
+  } else if (city.hourly.icon=='wind'){
+    weatherPic = 'http://cliparts.co/cliparts/kT8/o6e/kT8o6e6Xc.jpg'
+    var weatherHeight = '100'
+  } else if (city.hourly.icon=='fog'){
+    weatherPic = 'http://images.clipartpanda.com/fog-clipart-4cboRoMcg.jpeg'
+    var weatherHeight = '75'
+  } else if (city.hourly.icon=='cloudy'){
+    weatherPic = 'http://worldartsme.com/images/its-cloudy-clipart-1.jpg'
+    var weatherHeight = '80'
+  } else if (city.hourly.icon=='partly-cloudy-day'){
+    weatherPic = 'http://images.clipartpanda.com/weather-clipart-weather-clip-art-15.jpg'
+    var weatherHeight = '75'
+  } else if (city.hourly.icon=='partly-cloudy-night'){
+    weatherPic = 'http://images.clipshrine.com/getimg/PngMedium-Weather-Symbols-Cloudy-Night-11628.png'
+    var weatherHeight = '100'
+  }
   var latlng = [city.latitude, city.longitude]
   var circle = L.circle(latlng, 10, {
-      color: 'red',
+      color: tempColor,
       fillColor: '#f03',
       fillOpacity: 0.5
-  }).bindLabel(name)
+  }).bindPopup(name + '<br><img src="' + weatherPic + '" height="' + weatherHeight + '"><br>' + city.hourly.data[0].apparentTemperature + '&deg F<br><a class="label" onclick=displayCity("' + city,name + '") class="teal-text text-darken-3">more details</a>',closeOnClick=true)
   
   markersLayerGroup.addLayer(circle)
 }
 
-function displayCity(city, name){
+
+function displayCity(city,name){
   console.log('displayCity', city)
-  $('#cities').append('<li class="collection-item">' + name +
-    ' humidity = ' +
-    JSON.stringify(city.currently) + '</li>')
+  var tempColor = 'red'
+  if (city.hourly.data[0].apparentTemperature<32){
+    tempColor = 'blue'
+  } else if (city.hourly.data[0].apparentTemperature<50){
+    tempColor = 'purple'
+  } else if (city.hourly.data[0].apparentTemperature<70){
+    tempColor = 'yellow'
+  } else if (city.hourly.data[0].apparentTemperature<90){
+    tempColor = 'orange'
+  }
+  $('#cities').append('<div class="row"><div class="col s12 m20"><div class="card ' + tempColor + '"><div class="card-content black-text"><span class="card-title">' + name + '</span><p>Current Temperature: ' + city.hourly.data[0].apparentTemperature + '&deg F<br>Weather: ' + city.hourly.icon + '<br>Wind: ' + city.hourly.data[0].windSpeed + ' MPH<br>Possibility of Precipitation: ' + city.hourly.data[0].precipProbability*100 + '%<br>Amount of Precipitation: ' + city.hourly.data[0].precipIntensity + ' in./hr.<br>Pressure: ' + city.hourly.data[0].pressure + ' mbar<br>Relative Humidity: ' + city.hourly.data[0].humidity*100 + '%</p></div></div></div></div>')
 }
 
       </script>
