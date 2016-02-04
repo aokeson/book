@@ -1,14 +1,22 @@
 MyComponents.Rate = React.createClass({
-  render: function() {
-    return (
-      <div className="card">
-        <div className="card-content">
-          TODO: This is a component to display a single rate data.
-          Raw props data is {JSON.stringify(this.props)}
-        </div>
-      </div>
-    );
-  }
+ render: function() {
+
+   var keyMap = {'BEG': 'Beginning', 'END': 'End', 'RATE': 'Rate', 'RQ': 'Type of Rate', 'RR': 'Other Info', 'DESC': 'Description', }
+   var vals = [];
+   for(var key in this.props.rate) {
+     vals.push(<span key={key}>{keyMap[key]}: {this.props.rate[key]}<br /></span>);
+   }
+
+   return (
+     <div className="card">
+       <div className="card-content">
+         <p>
+         { vals }
+         </p>
+       </div>
+     </div>
+   );
+ }
 });
 
 

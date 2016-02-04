@@ -16,6 +16,8 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   </head>
   <body>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+
     <div class="container">
       <div id="navbar"></div>
 
@@ -59,7 +61,14 @@
       );
 
       // TODO: load tasks data from Firebase
-      var tasks = [{name: 'go to the movies'}, {name: 'sleep'}]
+      var ref = new Firebase('https://killinit-base.firebaseio.com')
+      ref.child('todos').child('tasks').on('value', function(snapshot){
+        var tasks = snapshot.val()
+        console.log('tasks', tasks) 
+      });
+
+//      var tasks = ref.child('todos')
+//      console.log('tasks', tasks)
 
       ReactDOM.render(
         <MyComponents.TaskList tasks={tasks}/>,

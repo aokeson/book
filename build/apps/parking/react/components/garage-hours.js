@@ -1,14 +1,22 @@
 MyComponents.Hour = React.createClass({
-  render: function() {
-    return (
-      <div className="card">
-        <div className="card-content">
-          TODO: This is a component to display an item in the hours array
-          Raw props data is {JSON.stringify(this.props)}
-        </div>
-      </div>
-    );
-  }
+ render: function() {
+
+   var keyMap = {'BEG': 'Open ', 'END': '-', 'FROM': '   ', 'TO': ' through ', }
+   var vals = [];
+   for(var key in this.props.hour) {
+     vals.push(<span key={key}>{keyMap[key]}{this.props.hour[key]}</span>);
+   }
+
+   return (
+     <div className="card">
+       <div className="card-content">
+         <p>
+         { vals }
+         </p>
+       </div>
+     </div>
+   );
+ }
 });
 
 
