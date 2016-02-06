@@ -8,13 +8,11 @@ MyComponents.Hour = React.createClass({
    }
 
    return (
-     <div className="card">
-       <div className="card-content">
+
          <p>
          { vals }
          </p>
-       </div>
-     </div>
+
    );
  }
 });
@@ -28,13 +26,20 @@ MyComponents.GarageHours = React.createClass({
     })
 
     return (
-      <div className="card">
-        <div className="card-content">
-          TODO: This is a component to display the hours of this garage.
-          Raw props data is {JSON.stringify(this.props)}
-
-          { hours }
-
+      <div className="row">
+        <div className="col s12 m9">
+          <div className="card">
+            <div className="card-image waves-effect waves-block waves-light">
+              <img className="activator" src="http://www.chevrolet.com/content/dam/Chevrolet/northamerica/usa/nscwebsite/en/Home/Chevy%20Culture/News/Parking%20Garages/01-images/2013-culture-news-parking-garages-mh-1-1280x551.jpg" height="450"></img>
+            </div>
+            <div className="card-content">
+              <span className="card-title activator grey-text text-darken-4">Garage Open Hours<i className="material-icons right">more_vert</i></span>
+            </div>
+            <div className="card-reveal">
+              <span className="card-title grey-text text-darken-4">Garage Open Hours:<i className="material-icons right">close</i></span>
+              {hours}
+            </div>
+          </div>
         </div>
       </div>
     );
