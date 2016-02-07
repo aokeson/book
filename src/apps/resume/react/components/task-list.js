@@ -1,11 +1,15 @@
 MyComponents.Task = React.createClass({
 
   render: function() {
+    var vals = [(<span><h4>{this.props.task.name}</h4>
+      Assigned To: {this.props.task.assigned}
+      <br />Priority: {this.props.task.priority}
+      <br />Type: {this.props.task.type}
+      <br />Due Date: {this.props.task.deadline}</span>)]
     return (
       <div className="card">
         <div className="card-content">
-        TODO: This is a component to display a task.
-        Raw props data is {JSON.stringify(this.props.task)}
+          {vals}
         </div>
       </div>
     );
@@ -15,19 +19,17 @@ MyComponents.Task = React.createClass({
 
 MyComponents.TaskList = React.createClass({
   render: function() {
-
+    console.log("this.props", this.props.tasks)
     var taskElements = this.props.tasks.map(function(t,i){
-      return <MyComponents.Task task={t} key={i}/>
+      if(t.assigned == "Alex"){
+        return <MyComponents.Task task={t} key={i}/>
+      }
     })
 
     return (
       <div className="card">
         <div className="card-content">
-        TODO: This is a component to display a list of tasks
-        assigned to me. Raw props data is {JSON.stringify(this.props.tasks)}
-
-        {taskElements}
-
+          {taskElements}
         </div>
       </div>
     );

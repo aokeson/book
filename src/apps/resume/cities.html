@@ -165,16 +165,16 @@ function mapCity(city,name){
 function displayCity(city,name){
   console.log('displayCity', city)
   var tempColor = 'red'
-  if (city.hourly.data[0].apparentTemperature<32){
+  if (city.currently.apparentTemperature<32){
     tempColor = 'blue'
-  } else if (city.hourly.data[0].apparentTemperature<50){
+  } else if (city.currently.apparentTemperature<50){
     tempColor = 'purple'
-  } else if (city.hourly.data[0].apparentTemperature<70){
+  } else if (city.currently.apparentTemperature<70){
     tempColor = 'yellow'
-  } else if (city.hourly.data[0].apparentTemperature<90){
+  } else if (city.currently.apparentTemperature<90){
     tempColor = 'orange'
   }
-  $('#cities').append('<div class="row"><div class="col s12 m20"><div class="card ' + tempColor + '"><div class="card-content black-text"><span class="card-title">' + name + '</span><p>Current Temperature: ' + city.hourly.data[0].apparentTemperature + '&deg F<br>Weather: ' + city.hourly.icon + '<br>Wind: ' + city.hourly.data[0].windSpeed + ' MPH<br>Possibility of Precipitation: ' + city.hourly.data[0].precipProbability*100 + '%<br>Amount of Precipitation: ' + city.hourly.data[0].precipIntensity + ' in./hr.<br>Pressure: ' + city.hourly.data[0].pressure + ' mbar<br>Relative Humidity: ' + city.hourly.data[0].humidity*100 + '%</p></div></div></div></div>')
+  $('#cities').append('<div class="row"><div class="col s12 m20"><div class="card ' + tempColor + '"><div class="card-content black-text"><span class="card-title">' + name + '</span><p>Current Temperature: ' + city.currently.apparentTemperature + '&deg F<br>Weather: ' + city.currently.icon + '<br>Wind: ' + city.currently.windSpeed + ' MPH<br>Possibility of Precipitation: ' + city.currently.precipProbability*100 + '%<br>Amount of Precipitation: ' + city.currently.precipIntensity + ' in./hr.<br>Pressure: ' + city.currently.pressure + ' mbar<br>Relative Humidity: ' + city.currently.humidity*100 + '%</p></div></div></div></div>')
 }
 
       </script>

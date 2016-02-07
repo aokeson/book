@@ -63,34 +63,47 @@
       // TODO: load tasks data from Firebase
       var ref = new Firebase('https://killinit-base.firebaseio.com')
       ref.child('todos').child('tasks').on('value', function(snapshot){
-        var tasks = snapshot.val()
-        console.log('tasks', tasks) 
+        var unformattedTasks = snapshot.val()
+        var tasks = []
+        for(var task in unformattedTasks) {
+          tasks.push(unformattedTasks[task])
+        }
+        ReactDOM.render(
+          <MyComponents.TaskList tasks={tasks}/>,
+          $('#tasks').get(0)
+        );
       });
 
-//      var tasks = ref.child('todos')
-//      console.log('tasks', tasks)
-
-      ReactDOM.render(
-        <MyComponents.TaskList tasks={tasks}/>,
-        $('#tasks').get(0)
-      );
-
       // TODO: load city weather data from Firebase
-      var cities = [{name: 'Austin'}, {name: 'New York'}]
-
-      ReactDOM.render(
-        <MyComponents.CityList cities={cities}/>,
-        $('#cities').get(0)
-      );
+      var ref = new Firebase('https://publicdata-weather.firebaseio.com')
+      ref.on('value', function(snapshot){
+        var unformattedCities = snapshot.val()
+        var citiesToGet = ["denver", "seattle", "losangeles", "washington", "sanfrancisco"]
+        var cities = []
+        for (var city in citiesToGet){
+          cities.push(unformattedCities[citiesToGet[city]])
+        }
+        ReactDOM.render(
+          <MyComponents.CityList cities={cities}/>,
+          $('#cities').get(0)
+        );
+      });
 
 
       // TODO: load skill data from Firebase
-      var skills = [{name: 'JavaScript', years: 5}, {name: 'Karate', years: 2}]
-
-      ReactDOM.render(
-        <MyComponents.SkillList skills={skills}/>,
-        $('#skills').get(0)
-      );
+      var ref = new Firebase('https://alexokeson-resume.firebaseio.com')
+      ref.child('bio').on('value', function(snapshot){
+        var unformattedBio = snapshot.val()
+        var skills = []
+        for(var skill in unformattedBio) {
+          skills.push(unformattedBio[skill])
+        }
+        console.log(skills)
+        ReactDOM.render(
+          <MyComponents.SkillList skills={skills}/>,
+          $('#skills').get(0)
+        );
+      });
 
     </script>
   </body>
