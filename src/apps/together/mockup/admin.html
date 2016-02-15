@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+
+    <nav>
+        <div class="nav-wrapper blue-grey darken-1">
+            <a href="index.html" class="brand-logo right">Playlist Me</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Course Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Sign up</a></li>
+                <li><a href="get.html">Get a Playlist</a></li>
+                <li><a href="give.html">Give a Playlist</a></li>
+                <li class="active"><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container background-color: white">
+
+        <h3>Current Playlists</h3>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Classy Event</div>
+                <div class="collapsible-body"><p>Requested by: Abby<br />7 current collaborators<br />I will be hosting a classy wine and cheese party for me and a few friends. Some nice, happy classical tunes would be nice. Don't normally listen to that kind of music so I could use some help. Thanks!<br/><a class="waves-effect waves-light btn" href="collaborate.html">Collaborate</a></p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Breakup Blues</div>
+                <div class="collapsible-body"><p>Requested by: Mike<br />13 current collaborators<br />My girlfriend of 11 months just broke up with me. Anything but a stupid love song.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Solo Dance Party</div>
+                <div class="collapsible-body"><p>Requested by: Aiden<br />21 current collaborators<br />Just in a dancing kind of mood! Would love some fast beats that pull you off the couch. Preferably some pop so I can sing along!<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="container background-color: white">
+        <h3>Past Playlists</h3>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Remixes</div>
+                <div class="collapsible-body"><p>Requested by: Kevin<br />18 collaborators<br />Have been into remixes lately and just want some recommendations for new ones to check out. Particularly into rap but looking to branch out.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Car Jams</div>
+                <div class="collapsible-body"><p>Requested by: Morgan<br />9 collaborators<br />Going on a long road trip and need some suggestions. I don't listen to music much so I don't know what is out there. Typically like indie songs but a variety would be nice.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">music_note</i>Birthday Party</div>
+                <div class="collapsible-body"><p>Requested by: John<br />25 collaborators<br />I'm hosting a birthday for a friend who is turning 24. I want some throwback songs from their youth to make some good conversation starters.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
+            </li>
+        </ul>
+
+    </div>
+
+    <style>
+    html {
+        background: url("images/music.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    </style>
+
+</body>
+
+</html>
