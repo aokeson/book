@@ -17,58 +17,286 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/">Course Home</a></li>
+        <li class="divider"></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="divider"></li>
+        <li><a href="login.html">Login/Sign up</a></li>
+        <li class="divider"></li>
+        <li><a href="get.html">Get a Playlist</a></li>
+        <li class="divider"></li>
+        <li><a href="give.html">Give a Playlist</a></li>
+        <li class="divider"></li>
+        <li class="active"><a href="admin.html">Admin</li>
+    </ul>
     <nav>
         <div class="nav-wrapper blue-grey darken-1">
-            <a href="index.html" class="brand-logo right">Playlist Me</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/">Course Home</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login/Sign up</a></li>
-                <li><a href="get.html">Get a Playlist</a></li>
-                <li><a href="give.html">Give a Playlist</a></li>
-                <li class="active"><a href="admin.html">Admin</a></li>
+            <a href="index.html" class="brand-logo left">Playlist Me</a>
+            <ul class="right">
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container background-color: white">
+    <div class="row">
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/christian.png">
+            </div>
+            <div class="card-content">
+              <button data-target="christian" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/classical.png">
+            </div>
+            <div class="card-content">
+              <button data-target="classical" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/country.png">
+            </div>
+            <div class="card-content">
+              <button data-target="country" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/dance.png">
+            </div>
+            <div class="card-content">
+              <button data-target="dance" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/folk.png">
+            </div>
+            <div class="card-content">
+              <button data-target="folk" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/hiphop.png">
+            </div>
+            <div class="card-content">
+              <button data-target="hiphop" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/indie.png">
+            </div>
+            <div class="card-content">
+              <button data-target="indie" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/jazz.png">
+            </div>
+            <div class="card-content">
+              <button data-target="jazz" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/pop.png">
+            </div>
+            <div class="card-content">
+              <button data-target="pop" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/rnb.png">
+            </div>
+            <div class="card-content">
+              <button data-target="rnb" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/rock.png">
+            </div>
+            <div class="card-content">
+              <button data-target="rock" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/workout.png">
+            </div>
+            <div class="card-content">
+              <button data-target="workout" class="btn modal-trigger">Playlists</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div>
 
-        <h3>Current Playlists</h3>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Classy Event</div>
-                <div class="collapsible-body"><p>Requested by: Abby<br />7 current collaborators<br />I will be hosting a classy wine and cheese party for me and a few friends. Some nice, happy classical tunes would be nice. Don't normally listen to that kind of music so I could use some help. Thanks!<br/><a class="waves-effect waves-light btn" href="collaborate.html">Collaborate</a></p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Breakup Blues</div>
-                <div class="collapsible-body"><p>Requested by: Mike<br />13 current collaborators<br />My girlfriend of 11 months just broke up with me. Anything but a stupid love song.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Solo Dance Party</div>
-                <div class="collapsible-body"><p>Requested by: Aiden<br />21 current collaborators<br />Just in a dancing kind of mood! Would love some fast beats that pull you off the couch. Preferably some pop so I can sing along!<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
-            </li>
-        </ul>
-
+  <!-- Modal Structure -->
+  <div id="christian" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Christian</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
     </div>
-
-    <div class="container background-color: white">
-        <h3>Past Playlists</h3>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Remixes</div>
-                <div class="collapsible-body"><p>Requested by: Kevin<br />18 collaborators<br />Have been into remixes lately and just want some recommendations for new ones to check out. Particularly into rap but looking to branch out.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Car Jams</div>
-                <div class="collapsible-body"><p>Requested by: Morgan<br />9 collaborators<br />Going on a long road trip and need some suggestions. I don't listen to music much so I don't know what is out there. Typically like indie songs but a variety would be nice.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">music_note</i>Birthday Party</div>
-                <div class="collapsible-body"><p>Requested by: John<br />25 collaborators<br />I'm hosting a birthday for a friend who is turning 24. I want some throwback songs from their youth to make some good conversation starters.<br/><a class="waves-effect waves-light btn">Collaborate</a></p></div>
-            </li>
-        </ul>
-
+  </div>
+</div>
+  <div id="classical" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Classical</h4>
+      <h5>Current Playlists</h5>
+      <h6>Classy Event</h6>
+      <p>Requested by: Abby<br />7 current collaborators<br />I will be hosting a classy wine and cheese party for me and a few friends. Some nice, happy classical tunes would be nice. Don't normally listen to that kind of music so I could use some help. Thanks!<br/><a class="waves-effect waves-light btn" href="collaborate.html">Collaborate</a></p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
     </div>
+  </div>
+</div>
+  <div id="country" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Country</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="dance" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>EDM/Dance</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="folk" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Folk and Americana</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="hiphop" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Hip Hop</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <h6>Remixes</h6>
+      <p>Requested by: Kevin<br />18 collaborators<br />Have been into remixes lately and just want some recommendations for new ones to check out. Particularly into rap but looking to branch out.<br/><a class="waves-effect waves-light btn">Collaborate</a></p>
+    </div>
+  </div>
+</div>
+  <div id="indie" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Indie/Alternative</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <h6>Car Jams</h6>
+      <p>Requested by: Morgan<br />9 collaborators<br />Going on a long road trip and need some suggestions. I don't listen to music much so I don't know what is out there. Typically like indie songs but a variety would be nice.<br/><a class="waves-effect waves-light btn">Collaborate</a></p>
+    </div>
+  </div>
+</div>
+  <div id="jazz" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Jazz</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="pop" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Pop</h4>
+      <h5>Current Playlists</h5>
+      <h6>Breakup Blues</h6>
+      <p>Requested by: Mike<br />13 current collaborators<br />My girlfriend of 11 months just broke up with me. Anything but a stupid love song.<br/><a class="waves-effect waves-light btn">Collaborate</a></p>
+      <h5>Solo Dance Party</h5>
+      <p>Requested by: Aiden<br />21 current collaborators<br />Just in a dancing kind of mood! Would love some fast beats that pull you off the couch. Preferably some pop so I can sing along!<br/><a class="waves-effect waves-light btn">Collaborate</a></p>
+      <h5>Past Playlists</h5>
+      <h5>Birthday Party</h6>
+      <p>Requested by: John<br />25 collaborators<br />I'm hosting a birthday for a friend who is turning 24. I want some throwback songs from their youth to make some good conversation starters.<br/><a class="waves-effect waves-light btn">Collaborate</a></p>
+    </div>
+  </div>
+</div>
+  <div id="rnb" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>RnB</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="rock" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Rock</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+  <div id="workout" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Workout</h4>
+      <h5>Current Playlists</h5>
+      <p>No Playlists</p>
+      <h5>Past Playlists</h5>
+      <p>No Playlists</p>
+    </div>
+  </div>
+</div>
+
 
     <style>
     html {
@@ -79,6 +307,13 @@
         background-size: cover;
     }
     </style>
+
+    <script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+    </script>
 
 </body>
 

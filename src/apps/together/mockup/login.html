@@ -17,16 +17,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/">Course Home</a></li>
+        <li class="divider"></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="divider"></li>
+        <li class="active"><a href="login.html">Login/Sign up</a></li>
+        <li class="divider"></li>
+        <li><a href="get.html">Get a Playlist</a></li>
+        <li class="divider"></li>
+        <li><a href="give.html">Give a Playlist</a></li>
+        <li class="divider"></li>
+        <li><a href="admin.html">Admin</li>
+    </ul>
     <nav>
         <div class="nav-wrapper blue-grey darken-1">
-            <a href="index.html" class="brand-logo right">Playlist Me</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/">Course Home</a></li>
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="login.html">Login/Sign up</a></li>
-                <li><a href="get.html">Get a Playlist</a></li>
-                <li><a href="give.html">Give a Playlist</a></li>
-                <li><a href="admin.html">Admin</a></li>
+            <a href="index.html" class="brand-logo left">Playlist Me</a>
+            <ul class="right">
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Login/Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </div>
     </nav>
