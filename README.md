@@ -21,3 +21,6 @@ The server is default to `http://localhost:5000`
 # Deploy
 
     $ firebase deploy
+
+# My Website
+	$ https://alexokeson-ucdd2.firebaseapp.com
